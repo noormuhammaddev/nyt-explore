@@ -11,7 +11,7 @@ To get started, simply clone this repository and run `npm` to install dependenci
 
 ```
 # Clone the repository
-git clone [https://github.com/links2design/artists.git](https://github.com/noormuhammaddev/nyt-explore.git)
+git clone https://github.com/noormuhammaddev/nyt-explore.git
 cd nyt-explore
 
 # Install dependencies
