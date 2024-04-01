@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Data from './Data';
+import NewsListData from './components/NewsListData/NewsListData';
 
 function App() {
   return (
     <div className="App">
-      <Data />
+      <NewsListData />
     </div>
   );
 }

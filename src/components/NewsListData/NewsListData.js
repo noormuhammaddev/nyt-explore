@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Typography, Box, Container, Grid } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import NewsCard from '../shared/NewsCard';
 
 const NYT_API_KEY = '5W67Z3ikWw4JQmGEqZbGBy4TIhY0aJ0A'; // Replace 'YOUR_API_KEY' with your actual API key
 
-const Data = () => {
+const NewsListData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -24,21 +27,31 @@ const Data = () => {
   }, []);
 
   return (
-    <div>
-      <h1>New York Times Most Popular Articles</h1>
+    <Container maxWidth="lg" >
+      <Typography variant="h5" align="left" style={{fontWeight: 'bold'}}>
+        New York Times Most Popular Articles
+      </Typography> 
+      <Divider style={{margin: '24px 0'}} />
+
       {data ? (
-        <ul>
-          {data.results.map(article => (
-            <li key={article.id}>
-              <a href={article.url}>{article.title}</a>
-            </li>
+        <Grid container spacing={2}>
+          {data.results.map(item => (
+            <Grid item sm={4} xs={12} key={item.id}>
+              <NewsCard 
+                title = {item.title} 
+                abstract = {item.abstract}
+                publishedDate={item.published_date}
+                url = {item.url}
+              />
+            </Grid>
           ))}
-        </ul>
+        </Grid>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    
+    </Container >
   );
 };
 
-export default Data;
+export default NewsListData;
