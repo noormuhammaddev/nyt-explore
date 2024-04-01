@@ -29,28 +29,38 @@ const NewsCard = ({
         >
           {title}
         </Typography>
-        <Typography 
-          variant="body2" 
-          color="text.secondary" 
-          align="left"
-          style={{minHeight: '88px'}}
-        >
-          {abstract}
-        </Typography>
 
-        <Typography 
-          variant="body2" 
-          color="text.secondary" 
-          align="left"
-        >
-          {publishedDate}
-        </Typography>
-        
+        {abstract && 
+          <Typography 
+            variant="body2" 
+            color="text.secondary" 
+            align="left"
+            style={{minHeight: '88px'}}
+          >
+            {abstract}
+          </Typography> 
+        }
+
+        {
+          publishedDate && 
+
+          <Typography 
+            variant="body2" 
+            color="text.secondary" 
+            align="left"
+          >
+            {publishedDate}
+          </Typography>
+        }
       </CardContent>
+
       <CardActions>
-        <Button size="small" href={url}>
+        {
+          url && 
+          <Button size="small" href={url}>
             Sea Detail
           </Button>
+        }
       </CardActions>
     </Card>
   );
